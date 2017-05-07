@@ -53,7 +53,15 @@ def parse_toneanalyzer_response(json_data):
     -----
     for an example of json see type pytest_data/tones_1.json
     """
-    pass
+
+    result = {}
+
+    for i in json_data['document_tone']['tone_categories']:
+        if 'emotion_tone' in i['category_id']:
+            for j in i['tones']:
+                result[j['tone_name']] = j['score']
+
+    return result
 
 
 if __name__ == '__main__':
