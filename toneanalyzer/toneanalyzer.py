@@ -60,7 +60,7 @@ def parse_toneanalyzer_response(json_data):
         if 'emotion_tone' in i['category_id']:
             for j in i['tones']:
                 result[j['tone_name']] = j['score']
-
+                
     return result
 
 
