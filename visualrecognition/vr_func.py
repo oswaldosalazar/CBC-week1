@@ -151,8 +151,9 @@ def parse_classes(json_data):
     """
     result = set()
 
-    for i in json_data['images'][0]['classifiers'][0]['classes']:
-        result.add(i['class'])
+    if json_data['images'][0]['classifiers']:
+        for i in json_data['images'][0]['classifiers'][0]['classes']:
+            result.add(i['class'])
 
     return result
 
