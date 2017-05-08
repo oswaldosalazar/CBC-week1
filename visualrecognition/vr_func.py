@@ -287,4 +287,10 @@ def measure_accuracy(image_entries):
     - 'actual': a {set} that gives the actual class of that image (only one).
     - 'predicted': a {set} that gives the predicted class(es) of that image.
     """
-    pass
+    match_count = 0
+
+    for image in image_entries:
+        if image['actual'] == image['predicted']:
+            match_count += 1
+    
+    return match_count/len(image_entries)
